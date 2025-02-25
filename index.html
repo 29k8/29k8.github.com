@@ -1,1 +1,71 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presidential Term Countdown</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <canvas id="fireworks-canvas"></canvas>
+    <div class="flag-overlay left"></div>
+    <div class="flag-overlay right"></div>
+    
+    <div class="container">
+        <div class="header">
+            <i class="fas fa-flag-usa flag-icon left"></i>
+            <h1>Presidential Term Countdown</h1>
+            <i class="fas fa-flag-usa flag-icon right"></i>
+        </div>
+        
+        <div class="countdown-container">
+            <div class="days-container">
+                <div class="big-number" id="days">0</div>
+                <div class="label">DAYS</div>
+            </div>
+            
+            <div class="time-container">
+                <div class="time-section">
+                    <span id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-section">
+                    <span id="minutes">00</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-section">
+                    <span id="seconds">00</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+                <div class="time-section milliseconds">
+                    <span id="milliseconds">000</span>
+                    <span class="time-label">Milliseconds</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        
+        <div class="progress-text">
+            <span id="progress-percentage">0%</span> of term completed
+        </div>
+        
+        <div class="patriotic-footer">
+            <div class="eagle-container">
+                <i class="fas fa-eagle"></i>
+            </div>
+            <p class="motto">United We Stand</p>
+        </div>
+    </div>
+
+    <script src="fireworks.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
