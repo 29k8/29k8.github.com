@@ -4,6 +4,9 @@ class Firework {
         this.ctx = canvas.getContext('2d');
         this.particles = [];
         this.colors = ['#e74c3c', '#f1c40f', '#3498db', '#ffffff'];
+        this.active = false;
+        this.duration = 10000; // 10 seconds duration
+        this.startTime = 0;
     }
 
     createParticles(x, y, count = 80) {
@@ -21,22 +24,44 @@ class Firework {
                 size,
                 color,
                 alpha: 1,
-                life: 0.8 + Math.random() * 0.4
+                life: 0.95 + Math.random() * 0.05 // Longer life for particles
             });
         }
     }
 
     update() {
+        if (!this.active) return;
+
+        // Calculate elapsed time
+        const elapsed = Date.now() - this.startTime;
+        const progress = Math.min(elapsed / this.duration, 1);
+
+        // Check if duration has passed
+        if (elapsed >= this.duration) {
+            this.active = false;
+            this.particles = [];
+            // Clear the canvas one last time
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            return;
+        }
+
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        // Occasionally add new particles during the show
+        if (Math.random() < 0.1 && this.active) {
+            const x = Math.random() * this.canvas.width;
+            const y = Math.random() * (this.canvas.height / 3);
+            this.createParticles(x, y, 20);
+        }
 
         for (let i = 0; i < this.particles.length; i++) {
             const p = this.particles[i];
 
             p.x += p.vx;
             p.y += p.vy;
-            p.vy += 0.05; // gravity
-            p.alpha -= 0.01;
-            p.life -= 0.01;
+            p.vy += 0.03; // Reduced gravity for slower fall
+            p.alpha -= 0.003; // Slower fade
+            p.life -= 0.003; // Slower life reduction
 
             this.ctx.globalAlpha = p.alpha;
             this.ctx.fillStyle = p.color;
@@ -50,13 +75,14 @@ class Firework {
             }
         }
 
-        if (this.particles.length > 0) {
-            requestAnimationFrame(() => this.update());
-        }
+        requestAnimationFrame(() => this.update());
     }
 
     launch(x, y) {
-        this.createParticles(x, y);
+        this.active = true;
+        this.startTime = Date.now();
+        this.particles = [];
+        this.createParticles(x, y, 100);
         this.update();
     }
 } 

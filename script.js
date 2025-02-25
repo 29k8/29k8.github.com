@@ -52,6 +52,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
         const milliseconds = Math.floor(timeRemaining % 1000);
 
+        // Update seconds progress bar - showing remaining seconds in current minute
+        const secondsProgress = document.getElementById('minute-progress');
+        if (secondsProgress) {
+            const secondsPercentage = (seconds / 60) * 100;
+            secondsProgress.style.width = secondsPercentage + '%';
+        }
+
         // Check if minute has changed
         if (lastMinute !== -1 && minutes !== lastMinute) {
             // Launch fireworks at random positions

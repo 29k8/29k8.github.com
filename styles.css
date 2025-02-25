@@ -16,6 +16,7 @@ body {
     padding: 20px;
     position: relative;
     overflow: hidden;
+    overflow-y: auto;
 }
 
 .stars {
@@ -249,7 +250,7 @@ h1::after {
 .progress-text {
     font-size: 1rem;
     color: #ddd;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #progress-percentage {
@@ -258,7 +259,8 @@ h1::after {
 }
 
 .patriotic-footer {
-    margin-top: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     position: relative;
 }
 
@@ -295,23 +297,23 @@ h1::after {
 .donation-container {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 30px;
+    padding: 15px;
+    margin-bottom: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .donation-container h3 {
     color: #f1c40f;
-    margin-bottom: 10px;
-    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .donation-container p {
     color: #fff;
-    margin-bottom: 15px;
-    font-size: 1rem;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
 }
 
 .bitcoin-address {
@@ -348,6 +350,8 @@ h1::after {
 
 .qr-code img {
     display: block;
+    width: 120px;
+    height: 120px;
 }
 
 @media (max-width: 600px) {
@@ -383,4 +387,20 @@ h1::after {
     .address-text {
         font-size: 0.7rem;
     }
+}
+
+.minute-progress-container {
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.minute-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #e74c3c, #f1c40f);
+    width: 0%;
+    transition: width 0.1s linear;
 } 
