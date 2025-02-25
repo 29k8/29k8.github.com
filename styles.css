@@ -292,6 +292,64 @@ h1::after {
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.donation-container {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.donation-container h3 {
+    color: #f1c40f;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.donation-container p {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.bitcoin-address {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bitcoin-icon {
+    color: #f7931a;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.address-text {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #fff;
+    word-break: break-all;
+}
+
+.qr-code {
+    display: inline-block;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.qr-code img {
+    display: block;
+}
+
 @media (max-width: 600px) {
     .big-number {
         font-size: 5rem;
@@ -320,5 +378,9 @@ h1::after {
     
     .patriotic-footer::after {
         right: 10%;
+    }
+    
+    .address-text {
+        font-size: 0.7rem;
     }
 } 

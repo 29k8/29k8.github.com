@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
     canvas.height = window.innerHeight;
     const firework = new Firework(canvas);
 
+    // Generate QR code for Bitcoin Cash address
+    generateQRCode();
+
     // Track the last minute value to detect changes
     let lastMinute = -1;
 
@@ -74,6 +77,23 @@ document.addEventListener('DOMContentLoaded', function () {
         // Update progress bar
         document.getElementById('progress-bar').style.width = progressPercentage.toFixed(2) + '%';
         document.getElementById('progress-percentage').textContent = progressPercentage.toFixed(1) + '%';
+    }
+
+    // Generate QR code for the Bitcoin Cash address
+    function generateQRCode() {
+        const bitcoinAddress = "qryr0syy3uggkfk39h5mcc3stum3lvs3r52gf3hnx5";
+        const qrCodeElement = document.getElementById('qr-code');
+
+        // Create QR code
+        const typeNumber = 0;
+        const errorCorrectionLevel = 'L';
+        const qr = qrcode(typeNumber, errorCorrectionLevel);
+        qr.addData(bitcoinAddress);
+        qr.make();
+
+        // Create image
+        const qrImage = qr.createImgTag(4);
+        qrCodeElement.innerHTML = qrImage;
     }
 
     // Handle window resize
